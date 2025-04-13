@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from flask_mail import Mail, Message
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
@@ -7,6 +8,13 @@ import os
 load_dotenv()
 
 app = Flask(__name__, static_folder='.', static_url_path='')
+CORS(app, resources={
+    r"/send-message": {
+        "origins": ["https://my-portfolio-backend-vedantdalavi14.vercel.app", "http://localhost:5000"],
+        "methods": ["POST"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=587,
