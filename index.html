@@ -978,7 +978,9 @@
             });
 
             // Contact Form Handling
-            const backendURL = "http://localhost:5000"; // Local development URL
+            const backendURL = window.location.hostname === 'localhost' 
+                ? 'http://localhost:5000' 
+                : window.location.origin;
 
             document.getElementById('contact-form').addEventListener('submit', async function (e) {
                 e.preventDefault();
@@ -987,6 +989,10 @@
                 const formSuccess = document.getElementById('form-success');
                 const formError = document.getElementById('form-error');
 
+                // Reset messages
+                formSuccess.classList.add('hidden');
+                formError.classList.add('hidden');
+
                 const formData = {
                     name: document.getElementById('name').value,
                     email: document.getElementById('email').value,
@@ -994,32 +1000,30 @@
                     message: document.getElementById('message').value
                 };
 
-                if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-                    formError.classList.remove('hidden');
-                    return;
-                }
-
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
 
                 try {
                     const response = await fetch(`${backendURL}/send-message`, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
                         body: JSON.stringify(formData)
                     });
 
                     if (response.ok) {
                         formSuccess.classList.remove('hidden');
-                        formError.classList.add('hidden');
                         this.reset();
                     } else {
-                        throw new Error('Failed to send message');
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || 'Failed to send message');
                     }
                 } catch (error) {
-                    console.error(error);
+                    console.error('Form submission error:', error);
+                    formError.innerHTML = `<div class="flex items-center"><i class="fas fa-exclamation-circle text-red-500 dark:text-red-300 mr-2 text-xl"></i><p class="text-sm sm:text-base">${error.message || 'Something went wrong. Please try again later.'}</p></div>`;
                     formError.classList.remove('hidden');
-                    formSuccess.classList.add('hidden');
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> Send Message';

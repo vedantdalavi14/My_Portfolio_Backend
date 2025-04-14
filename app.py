@@ -10,13 +10,7 @@ load_dotenv()
 app = Flask(__name__, static_folder='.', static_url_path='')
 
 # CORS settings
-CORS(app, resources={
-    r"/send-message": {
-        "origins": "*",  # Allow all origins during development
-        "methods": ["POST"],
-        "allow_headers": ["Content-Type", "Accept"]
-    }
-})
+CORS(app)  # Enable CORS for all routes
 
 # Mail config
 app.config.update(
