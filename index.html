@@ -319,7 +319,7 @@
                                         class="bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white">
                                         <i class="fab fa-github"></i>
                                     </a>
-                                    <a href="https://git-tutor.vercel.app/" target="_blank"
+                                    <a href="#" onclick="showProjectAlert(event)"
                                         class="bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
@@ -1044,6 +1044,12 @@
                     });
                 });
             });
+
+            // Add the showProjectAlert function
+            window.showProjectAlert = function(event) {
+                event.preventDefault();
+                alert('This project is currently not deployed. Please check back later!');
+            };
         });
     </script>
 </body>
