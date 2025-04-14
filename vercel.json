@@ -8,6 +8,10 @@
         {
             "src": "*.html",
             "use": "@vercel/static"
+        },
+        {
+            "src": "images/**",
+            "use": "@vercel/static"
         }
     ],
     "routes": [
@@ -16,8 +20,12 @@
             "dest": "app.py"
         },
         {
+            "src": "/images/(.*)",
+            "dest": "/images/$1"
+        },
+        {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "/$1"
         }
     ]
 } 

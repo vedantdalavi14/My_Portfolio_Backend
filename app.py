@@ -12,14 +12,9 @@ app = Flask(__name__, static_folder='.', static_url_path='')
 # CORS settings
 CORS(app, resources={
     r"/send-message": {
-        "origins": [
-            "https://my-portfolio-backend-vedantdalavi14.vercel.app",
-            "http://localhost:5000",
-            "http://127.0.0.1:5500",
-            "http://localhost:5500"
-        ],
+        "origins": "*",  # Allow all origins during development
         "methods": ["POST"],
-        "allow_headers": ["Content-Type"]
+        "allow_headers": ["Content-Type", "Accept"]
     }
 })
 
