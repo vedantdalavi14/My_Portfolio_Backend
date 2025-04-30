@@ -1172,7 +1172,7 @@
             particleDensity: 1,
             particleSize: 1.5,
             returnSpeed: 100,
-            initialFormationSpeed: 40,
+            initialFormationSpeed: 10, //ster initial formation
             formationDuration: 4000,
             lineHeightMultiplier: 0.5
         };
@@ -1209,14 +1209,16 @@
         // Function to update particle size and density for device
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
-                particleSettings.particleSize = 0.7;
+                particleSettings.particleSize = 1
                 particleSettings.particleDensity = 1;
+                particleSettings.formationDuration = 1000; // Faster on mobile
                 // Update text content for mobile
                 particleSettings.texts[1].content = "Aspiring Python Developer";
                 particleSettings.texts[2].content = "& Problem Solver";
             } else {
-                particleSettings.particleSize = 1.2;
-                particleSettings.particleDensity = 2; // Changed to 2 for desktop
+                particleSettings.particleSize = 1.5
+                particleSettings.particleDensity = 2; // Desktop
+                particleSettings.formationDuration = 1500; // Faster on desktop
                 // Update text content for desktop
                 particleSettings.texts[1].content = "Aspiring Python Developer & Problem Solver";
                 particleSettings.texts[2].content = "";
