@@ -1212,8 +1212,8 @@
         // Function to update particle size and density for device
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
-                particleSettings.particleSize = 1;
-                particleSettings.particleDensity = 1;
+                particleSettings.particleSize = 2.2;
+                particleSettings.particleDensity = 1.2;
                 particleSettings.formationDuration = 1000; // Faster on mobile
                 particleSettings.returnSpeed = 20; // Slower return on mobile
                 // Increase font size for mobile
@@ -1445,7 +1445,7 @@
                         }
                     },
                     "opacity": {
-                        "value": 0.8,
+                        "value": isMobile ? 1 : 0.8,
                         "random": true,
                         "anim": {
                             "enable": true,
@@ -1462,7 +1462,7 @@
                         "enable": true,
                         "distance": 150,
                         "color": isDarkMode ? "#ffffff" : "#000000",
-                        "opacity": 0.5,
+                        "opacity": isMobile ? 0.8 : 0.5,
                         "width": 1
                     },
                     "move": {
