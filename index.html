@@ -1141,10 +1141,6 @@
         // Particle Animation Code
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
-        // Debug: Log canvas initialization
-        console.log('Canvas initialized:', !!canvas, 'Context:', !!ctx);
-        // Debug: Add a background color to canvas for visibility
-        canvas.style.background = 'rgba(255,0,0,0.05)'; // Remove after testing
 
         // Customizable settings
         const particleSettings = {
@@ -1260,20 +1256,12 @@
             
             // Touch interaction only
             canvas.addEventListener('touchstart', function (e) {
-                console.log('Touchstart event fired');
-                const touch = e.touches[0];
-                const rect = canvas.getBoundingClientRect();
-                mouse.x = touch.clientX - rect.left;
-                mouse.y = touch.clientY - rect.top;
-                mouse.isClicking = true;
-                mouse.clickEndTime = Date.now() + particleSettings.clickDuration;
+                if (!mouse.isClicking) {
+                    mouse.isClicking = true;
+                    mouse.clickEndTime = Date.now() + particleSettings.clickDuration;
+                }
             });
-            canvas.addEventListener('touchend', function (e) {
-                console.log('Touchend event fired');
-                mouse.isClicking = false;
-                mouse.x = undefined;
-                mouse.y = undefined;
-            });
+
             // No mousemove/mouseout listeners for mobile
             mouse.x = undefined;
             mouse.y = undefined;
