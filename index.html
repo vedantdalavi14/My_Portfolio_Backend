@@ -453,8 +453,7 @@
                             class="fab fa-bootstrap text-3xl sm:text-4xl text-purple-600 dark:text-purple-400 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Bootstrap</h3>
                     </a>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
-                        rel="noopener noreferrer"
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-orange-100 via-white to-orange-200 dark:from-orange-900 dark:via-gray-900 dark:to-orange-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-orange-300 dark:border-orange-700">
                         <i
                             class="fab fa-html5 text-3xl sm:text-4xl text-orange-600 dark:text-orange-400 mb-2 sm:mb-3"></i>
@@ -1124,11 +1123,11 @@
         // Function to update particle size and density for device
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
-                particleSettings.particleSize = 0.7; // Smaller for mobile
-                particleSettings.particleDensity = 1; // Denser for mobile
+                particleSettings.particleSize = 0.7;
+                particleSettings.particleDensity = 1; 
             } else {
-                particleSettings.particleSize = 1.5; // Default for tablet/desktop
-                particleSettings.particleDensity = 2; // Default for tablet/desktop
+                particleSettings.particleSize = 1.5;
+                particleSettings.particleDensity = 2;
             }
         }
 
@@ -1136,7 +1135,7 @@
         let prevW = window.innerWidth;
         let prevH = window.innerHeight;
 
-        function resizeCanvasAndParticles() {
+        function resizeCanvasAndParticlesDesktop() {
             W = window.innerWidth;
             H = window.innerHeight;
             canvas.width = W;
@@ -1144,14 +1143,47 @@
             updateParticleSizeForDevice();
             initParticles();
         }
-        window.addEventListener('resize', resizeCanvasAndParticles);
-        window.addEventListener('orientationchange', resizeCanvasAndParticles);
+
+        // For mobile, only re-init on orientation change (not on scroll/resize)
+        function resizeCanvasAndParticlesMobile() {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+            updateParticleSizeForDevice();
+            initParticles();
+        }
+
+        window.addEventListener('resize', resizeCanvasAndParticlesDesktop);
+        window.addEventListener('orientationchange', resizeCanvasAndParticlesMobile);
 
         // Detect touch device
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
         // Event listeners
-        if (!isTouchDevice) {
+        if (isTouchDevice) {
+            // Only re-init on orientation change (not on scroll/resize)
+            window.addEventListener('orientationchange', resizeCanvasAndParticlesMobile);
+
+            // Touch interaction only
+            canvas.addEventListener('touchstart', function (e) {
+                if (!mouse.isClicking) {
+                    mouse.isClicking = true;
+                    mouse.clickEndTime = Date.now() + particleSettings.clickDuration;
+                }
+            });
+
+            // No mousemove/mouseout listeners for mobile
+            mouse.x = undefined;
+            mouse.y = undefined;
+        } else {
+            // Desktop: re-init on resize (and optionally scroll)
+            window.addEventListener('resize', resizeCanvasAndParticlesDesktop);
+
+            // Optionally, if your canvas size changes on scroll, add:
+            // window.addEventListener('scroll', resizeCanvasAndParticlesDesktop);
+
+            // Mouse interaction
             window.addEventListener('mousemove', function (event) {
                 const rect = canvas.getBoundingClientRect();
                 mouse.x = event.clientX - rect.left;
@@ -1161,10 +1193,6 @@
                 mouse.x = undefined;
                 mouse.y = undefined;
             });
-        } else {
-            // On touch devices, disable hover effect by always setting mouse.x/y to undefined
-            mouse.x = undefined;
-            mouse.y = undefined;
         }
 
         window.addEventListener('click', function () {
