@@ -1173,7 +1173,7 @@
             particleSize: 1.5,
             returnSpeed: 100,
             initialFormationSpeed: 40,
-            formationDuration: 2500,
+            formationDuration: 4000,
             lineHeightMultiplier: 0.5
         };
 
@@ -1246,7 +1246,7 @@
             initParticles();
         }
 
-        // Detect touch device
+        // Detect touch device (move this to the top of the script, before any use)
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
         // Event listeners
@@ -1269,7 +1269,7 @@
             // Desktop: re-init on resize
             window.addEventListener('resize', resizeCanvasAndParticlesDesktop);
 
-            // Mouse interaction
+            // Mouse interaction for desktop only
             window.addEventListener('mousemove', function (event) {
                 const rect = canvas.getBoundingClientRect();
                 mouse.x = event.clientX - rect.left;
@@ -1319,6 +1319,8 @@
 
                         if (currentTime > mouse.clickEndTime) {
                             mouse.isClicking = false;
+                            mouse.x = undefined;
+                            mouse.y = undefined;
                         }
                     }
 
@@ -1409,6 +1411,9 @@
         // Get particle config based on current theme
         function getParticleConfig() {
             const isDarkMode = document.documentElement.classList.contains('dark');
+            // Use isTouchDevice for robust detection
+            const isMobile = isTouchDevice;
+            
             return {
                 "particles": {
                     "number": {
@@ -1463,7 +1468,7 @@
                     "detect_on": "canvas",
                     "events": {
                         "onhover": {
-                            "enable": true,
+                            "enable": !isMobile, // Robustly disable hover for all touch devices
                             "mode": "grab"
                         },
                         "onclick": {
@@ -1496,6 +1501,10 @@
             }
 
             particlesJS("particles-js", getParticleConfig());
+            // Fallback: forcibly disable hover on mobile/touch devices after init
+            if (isTouchDevice && window.pJSDom && window.pJSDom.length > 0) {
+                window.pJSDom[0].pJS.interactivity.events.onhover.enable = false;
+            }
             initParticles();
             animateParticles();
         }
