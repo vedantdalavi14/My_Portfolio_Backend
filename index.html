@@ -1212,8 +1212,8 @@
         // Function to update particle size and density for device
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
-                particleSettings.particleSize = 2.2;
-                particleSettings.particleDensity = 1.2;
+                particleSettings.particleSize = 1.5;
+                particleSettings.particleDensity = 1;
                 particleSettings.formationDuration = 1000; // Faster on mobile
                 particleSettings.returnSpeed = 20; // Slower return on mobile
                 // Increase font size for mobile
@@ -1264,15 +1264,21 @@
         if (isTouchDevice) {
             // Only re-init on orientation change (not on scroll/resize)
             window.addEventListener('orientationchange', resizeCanvasAndParticlesMobile);
-
-            // Touch interaction only
+            
+            // Touch interaction for click effect (scatter)
             canvas.addEventListener('touchstart', function (e) {
-                if (!mouse.isClicking) {
-                    mouse.isClicking = true;
-                    mouse.clickEndTime = Date.now() + particleSettings.clickDuration;
-                }
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = touch.clientX - rect.left;
+                mouse.y = touch.clientY - rect.top;
+                mouse.isClicking = true;
+                mouse.clickEndTime = Date.now() + particleSettings.clickDuration;
             });
-
+            canvas.addEventListener('touchend', function () {
+                mouse.isClicking = false;
+                mouse.x = undefined;
+                mouse.y = undefined;
+            });
             // No mousemove/mouseout listeners for mobile
             mouse.x = undefined;
             mouse.y = undefined;
