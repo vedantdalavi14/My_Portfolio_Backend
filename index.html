@@ -259,9 +259,9 @@
 
         <!-- Button container positioned at bottom -->
         <div class="text-center px-4 sm:px-6 lg:px-8 z-20 w-full max-w-4xl mx-auto mb-12">
-            <a href="#projects"
+            <a href="#about"
                 class="inline-block bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-primary-dark hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary">
-                View My Work
+                About Me
             </a>
         </div>
     </section>
@@ -1125,7 +1125,7 @@
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
                 particleSettings.particleSize = 0.7; // Smaller for mobile
-                particleSettings.particleDensity = 1; // Denser for mobile
+                particleSettings.particleDensity = 0.8; // Denser for mobile
             } else {
                 particleSettings.particleSize = 1.5; // Default for tablet/desktop
                 particleSettings.particleDensity = 2; // Default for tablet/desktop
@@ -1137,19 +1137,12 @@
         let prevH = window.innerHeight;
 
         function resizeCanvasAndParticles() {
-            const rect = canvas.getBoundingClientRect();
-            const newW = Math.round(rect.width);
-            const newH = Math.round(rect.height);
-            if (newW !== prevW || newH !== prevH) {
-                W = newW;
-                H = newH;
-                canvas.width = W;
-                canvas.height = H;
-                updateParticleSizeForDevice();
-                initParticles();
-                prevW = newW;
-                prevH = newH;
-            }
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+            updateParticleSizeForDevice();
+            initParticles();
         }
         window.addEventListener('resize', resizeCanvasAndParticles);
         window.addEventListener('orientationchange', resizeCanvasAndParticles);
