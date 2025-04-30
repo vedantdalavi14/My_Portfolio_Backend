@@ -1121,12 +1121,14 @@
             clickEndTime: 0
         };
 
-        // Function to update particle size for device
+        // Function to update particle size and density for device
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
                 particleSettings.particleSize = 0.7; // Smaller for mobile
+                particleSettings.particleDensity = 1.5; // Denser for mobile
             } else {
                 particleSettings.particleSize = 1.5; // Default for tablet/desktop
+                particleSettings.particleDensity = 2; // Default for tablet/desktop
             }
         }
 
@@ -1135,8 +1137,9 @@
         let prevH = window.innerHeight;
 
         function resizeCanvasAndParticles() {
-            const newW = window.innerWidth;
-            const newH = window.innerHeight;
+            const rect = canvas.getBoundingClientRect();
+            const newW = Math.round(rect.width);
+            const newH = Math.round(rect.height);
             if (newW !== prevW || newH !== prevH) {
                 W = newW;
                 H = newH;
