@@ -1121,13 +1121,32 @@
             clickEndTime: 0
         };
 
+        // Function to update particle size for device
+        function updateParticleSizeForDevice() {
+            if (window.innerWidth < 768) {
+                particleSettings.particleSize = 0.7; // Smaller for mobile
+            } else {
+                particleSettings.particleSize = 1.5; // Default for tablet/desktop
+            }
+        }
+
         // Responsive canvas sizing
+        let prevW = window.innerWidth;
+        let prevH = window.innerHeight;
+
         function resizeCanvasAndParticles() {
-            W = window.innerWidth;
-            H = window.innerHeight;
-            canvas.width = W;
-            canvas.height = H;
-            initParticles();
+            const newW = window.innerWidth;
+            const newH = window.innerHeight;
+            if (newW !== prevW || newH !== prevH) {
+                W = newW;
+                H = newH;
+                canvas.width = W;
+                canvas.height = H;
+                updateParticleSizeForDevice();
+                initParticles();
+                prevW = newW;
+                prevH = newH;
+            }
         }
         window.addEventListener('resize', resizeCanvasAndParticles);
         window.addEventListener('orientationchange', resizeCanvasAndParticles);
@@ -1360,7 +1379,7 @@
         // Initialize particles
         function initializeParticles() {
             updateParticleColors();
-            
+            updateParticleSizeForDevice();
             // Destroy existing particles if any
             if (window.pJSDom && window.pJSDom.length > 0) {
                 window.pJSDom[0].pJS.fn.vendors.destroy();
@@ -1373,6 +1392,7 @@
 
         // Initialize particles when DOM is loaded
         document.addEventListener('DOMContentLoaded', function () {
+            updateParticleSizeForDevice();
             initializeParticles();
         });
 
@@ -1382,6 +1402,15 @@
             originalToggleDarkMode();
             setTimeout(initializeParticles, 50);
         };
+
+        if (isTouchDevice) {
+            canvas.addEventListener('touchstart', function (e) {
+                if (!mouse.isClicking) {
+                    mouse.isClicking = true;
+                    mouse.clickEndTime = Date.now() + particleSettings.clickDuration;
+                }
+            });
+        }
     </script>
 </body>
 
