@@ -1174,9 +1174,9 @@
             clickDuration: 300,
             particleDensity: 1,
             particleSize: 1.5,
-            returnSpeed: 30,
+            returnSpeed: 100,
             initialFormationSpeed: 10, //ster initial formation
-            formationDuration: 1000,
+            formationDuration: 4000,
             lineHeightMultiplier: 0.5
         };
 
@@ -1215,15 +1215,17 @@
                 particleSettings.particleSize = 1;
                 particleSettings.particleDensity = 1;
                 particleSettings.formationDuration = 1000; // Faster on mobile
+                particleSettings.returnSpeed = 20; // Slower return on mobile
                 // Increase font size for mobile
-                particleSettings.texts[0].fontSize = 0.25,// Larger for mobile
-                    // Update text content for mobile
-                    particleSettings.texts[1].content = "Aspiring Python Developer";
+                particleSettings.texts[0].fontSize = 0.25; // Larger for mobile
+                // Update text content for mobile
+                particleSettings.texts[1].content = "Aspiring Python Developer";
                 particleSettings.texts[2].content = "& Problem Solver";
             } else {
                 particleSettings.particleSize = 1.5;
                 particleSettings.particleDensity = 2; // Desktop
                 particleSettings.formationDuration = 1500; // Faster on desktop
+                particleSettings.returnSpeed = 100; // Faster return on desktop
                 // Restore default font size for desktop
                 particleSettings.texts[0].fontSize = 0.20;
                 // Update text content for desktop
