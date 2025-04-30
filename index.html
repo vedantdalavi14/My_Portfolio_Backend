@@ -11,6 +11,7 @@
     <title>Vedya - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -165,6 +166,24 @@
         .dark .section-heading::after {
             background: linear-gradient(90deg, #00f7ff, #ff00ff);
         }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -233,19 +252,15 @@
 
     <!-- Hero Section -->
     <section id="home"
-        class="min-h-screen flex items-center justify-center bg-gradient dark:bg-gray-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute -inset-[10px] blur-xl bg-white/20 rounded-full animate-pulse"></div>
-            <div class="absolute top-1/4 right-1/4 w-64 h-64 bg-white/20 rounded-full blur-xl"></div>
-            <div class="absolute bottom-1/3 left-1/3 w-80 h-80 bg-white/20 rounded-full blur-xl"></div>
-        </div>
-        <div class="text-center px-4 sm:px-6 lg:px-8 z-10 w-full max-w-4xl mx-auto">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 tracking-tight">Vedya
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-10 font-light max-w-xl mx-auto">Aspiring Python
-                Developer & Problem Solver</p>
+        class="min-h-screen flex flex-col justify-end pb-12 bg-white dark:bg-black text-white relative overflow-hidden">
+        <!-- Particle Animation Elements -->
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+        <canvas id="canvas" class="absolute inset-0 z-10 pointer-events-none"></canvas>
+
+        <!-- Button container positioned at bottom -->
+        <div class="text-center px-4 sm:px-6 lg:px-8 z-20 w-full max-w-4xl mx-auto mb-12">
             <a href="#projects"
-                class="inline-block bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-gray-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary">
+                class="inline-block bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-primary-dark hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary">
                 View My Work
             </a>
         </div>
@@ -307,9 +322,11 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                 <!-- Project 1: GIT-TUTOR -->
-                <div class="bg-gradient-to-br from-primary/10 via-white to-purple-100 dark:from-gray-800 dark:via-gray-900 dark:to-primary/10 rounded-2xl shadow-2xl overflow-hidden card-hover transform transition-all duration-300 hover:-translate-y-2 border-2 border-primary/20 dark:border-primary/30">
+                <div
+                    class="bg-gradient-to-br from-primary/10 via-white to-purple-100 dark:from-gray-800 dark:via-gray-900 dark:to-primary/10 rounded-2xl shadow-2xl overflow-hidden card-hover transform transition-all duration-300 hover:-translate-y-2 border-2 border-primary/20 dark:border-primary/30">
                     <div class="relative">
-                        <img src="https://vedantdalavi.vercel.app/images/logo.png" alt="GIT-TUTOR Platform" class="w-full h-48 object-contain bg-white dark:bg-gray-700 p-4" loading="lazy">
+                        <img src="https://vedantdalavi.vercel.app/images/logo.png" alt="GIT-TUTOR Platform"
+                            class="w-full h-48 object-contain bg-white dark:bg-gray-700 p-4" loading="lazy">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
                             <div class="p-4 text-white">
@@ -327,8 +344,12 @@
                         </div>
                     </div>
                     <div class="p-5 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-800 dark:text-white">GIT-TUTOR - Online Learning Platform</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base">A front-end online learning platform offering courses in fields like Blockchain, Design, Finance, and more. As my first project, built without a backend, GIT-TUTOR features interactive content and a responsive design, highlighting my foundational web development skills.</p>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-800 dark:text-white">GIT-TUTOR - Online
+                            Learning Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base">A front-end online
+                            learning platform offering courses in fields like Blockchain, Design, Finance, and more. As
+                            my first project, built without a backend, GIT-TUTOR features interactive content and a
+                            responsive design, highlighting my foundational web development skills.</p>
                         <div class="flex flex-wrap gap-2 mb-3">
                             <span
                                 class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-xs sm:text-sm font-medium">HTML</span>
@@ -337,7 +358,8 @@
                             <span
                                 class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 px-3 py-1 rounded-full text-xs sm:text-sm font-medium">JavaScript</span>
                             <span
-                                class="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-3 py-1 rounded-full text-xs sm:text-sm font-medium">Responsive Design</span>
+                                class="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-3 py-1 rounded-full text-xs sm:text-sm font-medium">Responsive
+                                Design</span>
                             <span
                                 class="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-3 py-1 rounded-full text-xs sm:text-sm font-medium">Swiper.js</span>
                             <span
@@ -394,7 +416,8 @@
                     </a>
                     <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
-                        <i class="fas fa-database text-3xl sm:text-4xl text-gray-600 dark:text-gray-300 mb-2 sm:mb-3"></i>
+                        <i
+                            class="fas fa-database text-3xl sm:text-4xl text-gray-600 dark:text-gray-300 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">SQL</h3>
                     </a>
                 </div>
@@ -414,27 +437,33 @@
                     </a>
                     <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-green-100 via-white to-green-200 dark:from-green-900 dark:via-gray-900 dark:to-green-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-green-300 dark:border-green-700">
-                        <i class="fab fa-node-js text-3xl sm:text-4xl text-green-600 dark:text-green-400 mb-2 sm:mb-3"></i>
+                        <i
+                            class="fab fa-node-js text-3xl sm:text-4xl text-green-600 dark:text-green-400 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Node.js</h3>
                     </a>
                     <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-200 via-white to-gray-300 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-400 dark:border-gray-600">
-                        <i class="fas fa-fire text-3xl sm:text-4xl text-orange-500 dark:text-orange-400 mb-2 sm:mb-3"></i>
+                        <i
+                            class="fas fa-fire text-3xl sm:text-4xl text-orange-500 dark:text-orange-400 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Flask</h3>
                     </a>
                     <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
-                        <i class="fab fa-bootstrap text-3xl sm:text-4xl text-purple-600 dark:text-purple-400 mb-2 sm:mb-3"></i>
+                        <i
+                            class="fab fa-bootstrap text-3xl sm:text-4xl text-purple-600 dark:text-purple-400 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Bootstrap</h3>
                     </a>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer"
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                        rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-orange-100 via-white to-orange-200 dark:from-orange-900 dark:via-gray-900 dark:to-orange-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-orange-300 dark:border-orange-700">
-                        <i class="fab fa-html5 text-3xl sm:text-4xl text-orange-600 dark:text-orange-400 mb-2 sm:mb-3"></i>
+                        <i
+                            class="fab fa-html5 text-3xl sm:text-4xl text-orange-600 dark:text-orange-400 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">HTML</h3>
                     </a>
                     <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
-                        <i class="fab fa-css3-alt text-3xl sm:text-4xl text-blue-600 dark:text-blue-400 mb-2 sm:mb-3"></i>
+                        <i
+                            class="fab fa-css3-alt text-3xl sm:text-4xl text-blue-600 dark:text-blue-400 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">CSS</h3>
                     </a>
                 </div>
@@ -459,7 +488,8 @@
                     </a>
                     <a href="https://godotengine.org/" target="_blank" rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
-                        <i class="fas fa-gamepad text-3xl sm:text-4xl text-purple-500 dark:text-purple-400 mb-2 sm:mb-3"></i>
+                        <i
+                            class="fas fa-gamepad text-3xl sm:text-4xl text-purple-500 dark:text-purple-400 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Godot</h3>
                     </a>
                 </div>
@@ -495,7 +525,8 @@
                     <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank"
                         rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
-                        <i class="fas fa-terminal text-3xl sm:text-4xl text-gray-700 dark:text-gray-300 mb-2 sm:mb-3"></i>
+                        <i
+                            class="fas fa-terminal text-3xl sm:text-4xl text-gray-700 dark:text-gray-300 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Command Line</h3>
                     </a>
                 </div>
@@ -507,54 +538,78 @@
     <section id="certifications" class="py-16 sm:py-20 md:py-24 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 relative text-gray-800 dark:text-white section-heading">
+                <h2
+                    class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 relative text-gray-800 dark:text-white section-heading">
                     Certifications & Achievements
                 </h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                 <!-- CS50x Certification -->
-                <div class="bg-gradient-to-br from-primary/10 via-white to-purple-100 dark:from-gray-800 dark:via-gray-900 dark:to-primary/10 rounded-2xl shadow-2xl overflow-hidden card-hover transform transition-all duration-300 hover:-translate-y-2 border-2 border-primary/20 dark:border-primary/30">
+                <div
+                    class="bg-gradient-to-br from-primary/10 via-white to-purple-100 dark:from-gray-800 dark:via-gray-900 dark:to-primary/10 rounded-2xl shadow-2xl overflow-hidden card-hover transform transition-all duration-300 hover:-translate-y-2 border-2 border-primary/20 dark:border-primary/30">
                     <div class="flex flex-col items-center p-6 sm:p-8">
                         <div class="w-full flex justify-center mb-4">
-                            <img src="https://vedantdalavi.vercel.app/images/CS50x.png" alt="CS50x Certificate" class="w-64 h-40 object-contain rounded-lg shadow-lg border border-primary/20 dark:border-primary/30 transition-transform duration-300 hover:scale-105 dark:hover:bg-gray-700">
+                            <img src="https://vedantdalavi.vercel.app/images/CS50x.png" alt="CS50x Certificate"
+                                class="w-64 h-40 object-contain rounded-lg shadow-lg border border-primary/20 dark:border-primary/30 transition-transform duration-300 hover:scale-105 dark:hover:bg-gray-700">
                         </div>
                         <div class="flex items-center mb-2">
                             <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-full mr-3">
                                 <i class="fas fa-certificate text-primary text-2xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white">CS50x: Introduction to Computer Science</h3>
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white">CS50x: Introduction to Computer
+                                Science</h3>
                         </div>
-                        <span class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-3 py-1 rounded-full text-xs font-semibold mb-4 shadow-sm">Issued: 2024</span>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6 text-center">🌟 Completed CS50x by Harvard/edX, led by David J. Malan. Gained strong foundations in algorithms, data structures, and web development through hands-on projects. Excited to apply these skills to real-world challenges!</p>
+                        <span
+                            class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-3 py-1 rounded-full text-xs font-semibold mb-4 shadow-sm">Issued:
+                            2024</span>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 text-center">🌟 Completed CS50x by Harvard/edX,
+                            led by David J. Malan. Gained strong foundations in algorithms, data structures, and web
+                            development through hands-on projects. Excited to apply these skills to real-world
+                            challenges!</p>
                         <div class="flex flex-col sm:flex-row gap-3 w-full justify-center">
-                            <a href="https://cs50.harvard.edu/certificates/1cbdfec4-2e1d-4b79-a59c-0a5ef6c5aefd" target="_blank" class="inline-flex items-center justify-center px-5 py-2 bg-primary text-white rounded-lg font-semibold shadow-md hover:bg-primary-dark hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm">
+                            <a href="https://cs50.harvard.edu/certificates/1cbdfec4-2e1d-4b79-a59c-0a5ef6c5aefd"
+                                target="_blank"
+                                class="inline-flex items-center justify-center px-5 py-2 bg-primary text-white rounded-lg font-semibold shadow-md hover:bg-primary-dark hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm">
                                 <i class="fas fa-external-link-alt mr-2"></i> View Certificate
                             </a>
-                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7322593132657733632/" target="_blank" class="inline-flex items-center justify-center px-5 py-2 bg-[#0077b5] text-white rounded-lg font-semibold shadow-md hover:bg-[#005983] hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0077b5] focus:ring-offset-2 text-sm">
+                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7322593132657733632/"
+                                target="_blank"
+                                class="inline-flex items-center justify-center px-5 py-2 bg-[#0077b5] text-white rounded-lg font-semibold shadow-md hover:bg-[#005983] hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0077b5] focus:ring-offset-2 text-sm">
                                 <i class="fab fa-linkedin mr-2"></i> View on LinkedIn
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- CS50 Python Certification -->
-                <div class="bg-gradient-to-br from-primary/10 via-white to-purple-100 dark:from-gray-800 dark:via-gray-900 dark:to-primary/10 rounded-2xl shadow-2xl overflow-hidden card-hover transform transition-all duration-300 hover:-translate-y-2 border-2 border-primary/20 dark:border-primary/30">
+                <div
+                    class="bg-gradient-to-br from-primary/10 via-white to-purple-100 dark:from-gray-800 dark:via-gray-900 dark:to-primary/10 rounded-2xl shadow-2xl overflow-hidden card-hover transform transition-all duration-300 hover:-translate-y-2 border-2 border-primary/20 dark:border-primary/30">
                     <div class="flex flex-col items-center p-6 sm:p-8">
                         <div class="w-full flex justify-center mb-4">
-                            <img src="https://vedantdalavi.vercel.app/images/CS50P.png" alt="CS50 Python Certificate" class="w-64 h-40 object-contain rounded-lg shadow-lg border border-primary/20 dark:border-primary/30 transition-transform duration-300 hover:scale-105 dark:hover:bg-gray-700">
+                            <img src="https://vedantdalavi.vercel.app/images/CS50P.png" alt="CS50 Python Certificate"
+                                class="w-64 h-40 object-contain rounded-lg shadow-lg border border-primary/20 dark:border-primary/30 transition-transform duration-300 hover:scale-105 dark:hover:bg-gray-700">
                         </div>
                         <div class="flex items-center mb-2">
                             <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-full mr-3">
                                 <i class="fas fa-certificate text-primary text-2xl"></i>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white">CS50: Introduction to Programming with Python</h3>
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white">CS50: Introduction to
+                                Programming with Python</h3>
                         </div>
-                        <span class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-3 py-1 rounded-full text-xs font-semibold mb-4 shadow-sm">Issued: 2025</span>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6 text-center">🎉 Successfully completed CS50's Introduction to Programming with Python by Harvard. Covered Python fundamentals, problem sets, and a final project. Strengthened my programming and problem-solving skills!</p>
+                        <span
+                            class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-3 py-1 rounded-full text-xs font-semibold mb-4 shadow-sm">Issued:
+                            2025</span>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 text-center">🎉 Successfully completed CS50's
+                            Introduction to Programming with Python by Harvard. Covered Python fundamentals, problem
+                            sets, and a final project. Strengthened my programming and problem-solving skills!</p>
                         <div class="flex flex-col sm:flex-row gap-3 w-full justify-center">
-                            <a href="https://cs50.harvard.edu/certificates/86301b9d-386c-4b96-9b27-ecaae05885fe" target="_blank" class="inline-flex items-center justify-center px-5 py-2 bg-primary text-white rounded-lg font-semibold shadow-md hover:bg-primary-dark hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm">
+                            <a href="https://cs50.harvard.edu/certificates/86301b9d-386c-4b96-9b27-ecaae05885fe"
+                                target="_blank"
+                                class="inline-flex items-center justify-center px-5 py-2 bg-primary text-white rounded-lg font-semibold shadow-md hover:bg-primary-dark hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm">
                                 <i class="fas fa-external-link-alt mr-2"></i> View Certificate
                             </a>
-                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7322593514188402689/" target="_blank" class="inline-flex items-center justify-center px-5 py-2 bg-[#0077b5] text-white rounded-lg font-semibold shadow-md hover:bg-[#005983] hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0077b5] focus:ring-offset-2 text-sm">
+                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7322593514188402689/"
+                                target="_blank"
+                                class="inline-flex items-center justify-center px-5 py-2 bg-[#0077b5] text-white rounded-lg font-semibold shadow-md hover:bg-[#005983] hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0077b5] focus:ring-offset-2 text-sm">
                                 <i class="fab fa-linkedin mr-2"></i> View on LinkedIn
                             </a>
                         </div>
@@ -903,11 +958,15 @@
                     htmlElement.classList.add('dark');
                     localStorage.setItem('theme', 'dark');
                 }
+                updateParticleColors(); // <- Add this line
             }
+
 
             if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
                 htmlElement.classList.add('dark');
             }
+            updateParticleColors(); // <- Add this line
+
 
             // Add event listeners to both toggles
             darkModeToggle.addEventListener('click', toggleDarkMode);
@@ -925,8 +984,8 @@
             });
 
             // Contact Form Handling
-            const backendURL = window.location.hostname === 'localhost' 
-                ? 'http://localhost:5000' 
+            const backendURL = window.location.hostname === 'localhost'
+                ? 'http://localhost:5000'
                 : window.location.origin;
 
             document.getElementById('contact-form').addEventListener('submit', async function (e) {
@@ -989,11 +1048,340 @@
             });
 
             // Add the showProjectAlert function
-            window.showProjectAlert = function(event) {
+            window.showProjectAlert = function (event) {
                 event.preventDefault();
                 alert('This project is currently not deployed. Please check back later!');
             };
         });
+
+
+
+
+
+        // Particle Animation Code
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Customizable settings
+        const particleSettings = {
+            particleColor: '#000000', // Default light mode color
+            backgroundColor: '#ffffff',
+            textColor: 'white',
+            texts: [
+                {
+                    content: "Vedya",
+                    fontSize: 0.20,
+                    yOffset: -0.04
+                },
+                {
+                    content: "Aspiring Python Developer & Problem Solver",
+                    fontSize: 0.05,
+                    yOffset: 0.04
+                }
+            ],
+            fontFamily: "Verdana, sans-serif",
+            mouseRadius: 100,
+            clickRadiusMultiplier: 5,
+            clickForceMultiplier: 3,
+            clickDuration: 300,
+            particleDensity: 2,
+            particleSize: 1.5,
+            returnSpeed: 100,
+            initialFormationSpeed: 40,
+            formationDuration: 2500,
+            lineHeightMultiplier: 0.5
+        };
+
+        // Function to update particle colors based on theme
+        function updateParticleColors() {
+            const isDark = document.documentElement.classList.contains('dark');
+            particleSettings.particleColor = isDark ? '#ffffff' : '#000000';
+            particleSettings.backgroundColor = isDark ? '#000000' : '#ffffff';
+            particleSettings.textColor = isDark ? 'black' : 'white';
+            
+            // Update particles.js configuration
+            if (window.pJSDom && window.pJSDom.length > 0) {
+                const pJS = window.pJSDom[0].pJS;
+                pJS.particles.color.value = particleSettings.particleColor;
+                pJS.particles.line_linked.color = particleSettings.particleColor;
+                pJS.fn.particlesRefresh();
+            }
+        }
+
+        let W = window.innerWidth;
+        let H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+
+        let mouse = {
+            x: null,
+            y: null,
+            radius: particleSettings.mouseRadius,
+            isClicking: false,
+            clickEndTime: 0
+        };
+
+        // Responsive canvas sizing
+        function resizeCanvasAndParticles() {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+            initParticles();
+        }
+        window.addEventListener('resize', resizeCanvasAndParticles);
+        window.addEventListener('orientationchange', resizeCanvasAndParticles);
+
+        // Detect touch device
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        // Event listeners
+        if (!isTouchDevice) {
+            window.addEventListener('mousemove', function (event) {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = event.clientX - rect.left;
+                mouse.y = event.clientY - rect.top;
+            });
+            window.addEventListener('mouseout', function () {
+                mouse.x = undefined;
+                mouse.y = undefined;
+            });
+        } else {
+            // On touch devices, disable hover effect by always setting mouse.x/y to undefined
+            mouse.x = undefined;
+            mouse.y = undefined;
+        }
+
+        window.addEventListener('click', function () {
+            if (!mouse.isClicking) {
+                mouse.isClicking = true;
+                mouse.clickEndTime = Date.now() + particleSettings.clickDuration;
+            }
+        });
+
+        class Particle {
+            constructor(x, y, baseX, baseY) {
+                this.baseX = baseX;
+                this.baseY = baseY;
+                this.x = x;
+                this.y = y;
+                this.size = particleSettings.particleSize;
+                this.density = (Math.random() * 30) + 1;
+                this.forming = true;
+            }
+
+            draw() {
+                ctx.fillStyle = particleSettings.particleColor;
+                ctx.fillRect(this.x, this.y, this.size, this.size);
+            }
+
+            update(currentTime) {
+                if (mouse.x && mouse.y) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    let radius = mouse.radius;
+                    let forceMultiplier = 1;
+
+                    if (mouse.isClicking) {
+                        radius = mouse.radius * particleSettings.clickRadiusMultiplier;
+                        forceMultiplier = particleSettings.clickForceMultiplier;
+
+                        if (currentTime > mouse.clickEndTime) {
+                            mouse.isClicking = false;
+                        }
+                    }
+
+                    if (distance < radius) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const maxDistance = radius;
+                        const force = (maxDistance - distance) / maxDistance * forceMultiplier;
+
+                        this.x -= forceDirectionX * force * this.density;
+                        this.y -= forceDirectionY * force * this.density;
+                    }
+                }
+
+                const dx = this.x - this.baseX;
+                const dy = this.y - this.baseY;
+                const currentSpeed = this.forming ? particleSettings.initialFormationSpeed : particleSettings.returnSpeed;
+                this.x -= dx / currentSpeed;
+                this.y -= dy / currentSpeed;
+            }
+        }
+
+        let particleArray = [];
+        let startTime = Date.now();
+
+        function initParticles() {
+            particleArray = [];
+            ctx.clearRect(0, 0, W, H);
+
+            let totalHeight = 0;
+            particleSettings.texts.forEach(text => {
+                const fontSize = Math.min(W, H) * text.fontSize;
+                totalHeight += fontSize * particleSettings.lineHeightMultiplier;
+            });
+
+            let currentY = H / 2 - totalHeight / 2;
+
+            particleSettings.texts.forEach(text => {
+                const fontSize = Math.min(W, H) * text.fontSize;
+                ctx.font = `bold ${fontSize}px ${particleSettings.fontFamily}`;
+                ctx.fillStyle = particleSettings.textColor;
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+
+                const textY = currentY + (H * text.yOffset);
+                ctx.fillText(text.content, W / 2, textY);
+
+                const textCoordinates = ctx.getImageData(0, 0, W, H);
+
+                for (let y = 0; y < textCoordinates.height; y += particleSettings.particleDensity) {
+                    for (let x = 0; x < textCoordinates.width; x += particleSettings.particleDensity) {
+                        const index = (y * 4 * textCoordinates.width) + (x * 4);
+                        if (textCoordinates.data[index + 3] > 128) {
+                            const posX = x;
+                            const posY = y;
+                            const startX = Math.random() * W;
+                            const startY = Math.random() * H;
+                            particleArray.push(new Particle(startX, startY, posX, posY));
+                        }
+                    }
+                }
+
+                currentY += fontSize * particleSettings.lineHeightMultiplier;
+            });
+
+            startTime = Date.now();
+        }
+
+        function animateParticles(timestamp) {
+            const currentTime = Date.now();
+            const elapsed = currentTime - startTime;
+
+            if (elapsed > particleSettings.formationDuration) {
+                for (let particle of particleArray) {
+                    particle.forming = false;
+                }
+            }
+
+            ctx.clearRect(0, 0, W, H);
+            for (let i = 0; i < particleArray.length; i++) {
+                particleArray[i].update(currentTime);
+                particleArray[i].draw();
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        // Get particle config based on current theme
+        function getParticleConfig() {
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            return {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": isDarkMode ? "#ffffff" : "#000000"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": isDarkMode ? "#ffffff" : "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.8,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 5,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": isDarkMode ? "#ffffff" : "#000000",
+                        "opacity": 0.5,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        }
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                }
+            };
+        }
+
+        // Initialize particles
+        function initializeParticles() {
+            updateParticleColors();
+            
+            // Destroy existing particles if any
+            if (window.pJSDom && window.pJSDom.length > 0) {
+                window.pJSDom[0].pJS.fn.vendors.destroy();
+            }
+
+            particlesJS("particles-js", getParticleConfig());
+            initParticles();
+            animateParticles();
+        }
+
+        // Initialize particles when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeParticles();
+        });
+
+        // Update particles on theme change
+        const originalToggleDarkMode = window.toggleDarkMode;
+        window.toggleDarkMode = function () {
+            originalToggleDarkMode();
+            setTimeout(initializeParticles, 50);
+        };
     </script>
 </body>
 
