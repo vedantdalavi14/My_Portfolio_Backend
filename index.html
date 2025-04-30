@@ -1130,28 +1130,21 @@
                 particleSettings.particleSize = 1.5; // Default for tablet/desktop
                 particleSettings.particleDensity = 2; // Default for tablet/desktop
             }
-        }s
+        }
 
         // Responsive canvas sizing
         let prevW = window.innerWidth;
         let prevH = window.innerHeight;
 
         function resizeCanvasAndParticles() {
-            const newW = window.innerWidth;
-            const newH = window.innerHeight;
+            const rect = canvas.getBoundingClientRect();
+            const newW = Math.round(rect.width);
+            const newH = Math.round(rect.height);
             if (newW !== prevW || newH !== prevH) {
-                // Set canvas style size (CSS pixels)
-                canvas.style.width = newW + 'px';
-                canvas.style.height = newH + 'px';
-                // Set canvas actual size (device pixels)
-                const dpr = window.devicePixelRatio || 1;
-                canvas.width = newW * dpr;
-                canvas.height = newH * dpr;
-                // Scale context for high-DPI screens
-                ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transform
-                ctx.scale(dpr, dpr);
                 W = newW;
                 H = newH;
+                canvas.width = W;
+                canvas.height = H;
                 updateParticleSizeForDevice();
                 initParticles();
                 prevW = newW;
@@ -1250,26 +1243,15 @@
 
             let totalHeight = 0;
             particleSettings.texts.forEach(text => {
-                let fontSize = Math.min(W, H) * text.fontSize;
-                // Ensure text fits horizontally
-                ctx.font = `bold ${fontSize}px ${particleSettings.fontFamily}`;
-                let textWidth = ctx.measureText(text.content).width;
-                if (textWidth > W * 0.95) {
-                    fontSize = fontSize * (W * 0.95 / textWidth);
-                }
+                const fontSize = Math.min(W, H) * text.fontSize;
                 totalHeight += fontSize * particleSettings.lineHeightMultiplier;
             });
 
             let currentY = H / 2 - totalHeight / 2;
 
             particleSettings.texts.forEach(text => {
-                let fontSize = Math.min(W, H) * text.fontSize;
-                // Ensure text fits horizontally
+                const fontSize = Math.min(W, H) * text.fontSize;
                 ctx.font = `bold ${fontSize}px ${particleSettings.fontFamily}`;
-                let textWidth = ctx.measureText(text.content).width;
-                if (textWidth > W * 0.95) {
-                    fontSize = fontSize * (W * 0.95 / textWidth);
-                }
                 ctx.fillStyle = particleSettings.textColor;
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";
