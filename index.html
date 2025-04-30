@@ -306,7 +306,9 @@
         <!-- Button container positioned at bottom -->
         <div class="text-center px-4 sm:px-6 lg:px-8 z-20 w-full max-w-4xl mx-auto mb-12">
             <a href="#about"
-                class="inline-block bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-primary-dark hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary">
+                class="inline-block px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base shadow border border-primary/20
+    bg-primary text-white hover:bg-primary-dark hover:shadow-lg
+    dark:bg-gray-100 dark:text-primary dark:border-white/20 dark:hover:bg-gray-300 dark:hover:text-primary-dark dark:shadow-lg dark:focus:ring-2 dark:focus:ring-white dark:focus:ring-offset-black transition-all duration-300">
                 About Me
             </a>
         </div>
@@ -499,7 +501,8 @@
                             class="fab fa-bootstrap text-3xl sm:text-4xl text-purple-600 dark:text-purple-400 mb-2 sm:mb-3"></i>
                         <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Bootstrap</h3>
                     </a>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer"
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                        rel="noopener noreferrer"
                         class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-orange-100 via-white to-orange-200 dark:from-orange-900 dark:via-gray-900 dark:to-orange-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-orange-300 dark:border-orange-700">
                         <i
                             class="fab fa-html5 text-3xl sm:text-4xl text-orange-600 dark:text-orange-400 mb-2 sm:mb-3"></i>
@@ -1183,7 +1186,7 @@
             particleSettings.particleColor = isDark ? '#ffffff' : '#000000';
             particleSettings.backgroundColor = isDark ? '#000000' : '#ffffff';
             particleSettings.textColor = isDark ? 'black' : 'white';
-            
+
             // Update particles.js configuration
             if (window.pJSDom && window.pJSDom.length > 0) {
                 const pJS = window.pJSDom[0].pJS;
@@ -1209,16 +1212,20 @@
         // Function to update particle size and density for device
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
-                particleSettings.particleSize = 1
+                particleSettings.particleSize = 1;
                 particleSettings.particleDensity = 1;
                 particleSettings.formationDuration = 1000; // Faster on mobile
-                // Update text content for mobile
-                particleSettings.texts[1].content = "Aspiring Python Developer";
+                // Increase font size for mobile
+                particleSettings.texts[0].fontSize = 0.25,// Larger for mobile
+                    // Update text content for mobile
+                    particleSettings.texts[1].content = "Aspiring Python Developer";
                 particleSettings.texts[2].content = "& Problem Solver";
             } else {
-                particleSettings.particleSize = 1.5
+                particleSettings.particleSize = 1.5;
                 particleSettings.particleDensity = 2; // Desktop
                 particleSettings.formationDuration = 1500; // Faster on desktop
+                // Restore default font size for desktop
+                particleSettings.texts[0].fontSize = 0.20;
                 // Update text content for desktop
                 particleSettings.texts[1].content = "Aspiring Python Developer & Problem Solver";
                 particleSettings.texts[2].content = "";
@@ -1255,7 +1262,7 @@
         if (isTouchDevice) {
             // Only re-init on orientation change (not on scroll/resize)
             window.addEventListener('orientationchange', resizeCanvasAndParticlesMobile);
-            
+
             // Touch interaction only
             canvas.addEventListener('touchstart', function (e) {
                 if (!mouse.isClicking) {
@@ -1415,7 +1422,7 @@
             const isDarkMode = document.documentElement.classList.contains('dark');
             // Use isTouchDevice for robust detection
             const isMobile = isTouchDevice;
-            
+
             return {
                 "particles": {
                     "number": {
