@@ -1154,9 +1154,14 @@
                     yOffset: -0.04
                 },
                 {
-                    content: "Aspiring Python Developer & Problem Solver",
+                    content: window.innerWidth < 768 ? "Aspiring Python Developer" : "Aspiring Python Developer & Problem Solver",
                     fontSize: 0.05,
                     yOffset: 0.04
+                },
+                {
+                    content: window.innerWidth < 768 ? "& Problem Solver" : "",
+                    fontSize: 0.05,
+                    yOffset: 0.08
                 }
             ],
             fontFamily: "Verdana, sans-serif",
@@ -1205,10 +1210,16 @@
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
                 particleSettings.particleSize = 0.7;
-                particleSettings.particleDensity = 1; 
+                particleSettings.particleDensity = 1;
+                // Update text content for mobile
+                particleSettings.texts[1].content = "Aspiring Python Developer";
+                particleSettings.texts[2].content = "& Problem Solver";
             } else {
-                particleSettings.particleSize = 1.5;
-                particleSettings.particleDensity = 2;
+                particleSettings.particleSize = 1.2;
+                particleSettings.particleDensity = 2; // Changed to 2 for desktop
+                // Update text content for desktop
+                particleSettings.texts[1].content = "Aspiring Python Developer & Problem Solver";
+                particleSettings.texts[2].content = "";
             }
         }
 
