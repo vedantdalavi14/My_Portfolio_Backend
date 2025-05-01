@@ -1212,12 +1212,12 @@
         // Function to update particle size and density for device
         function updateParticleSizeForDevice() {
             if (window.innerWidth < 768) {
-                particleSettings.particleSize = 1;
+                particleSettings.particleSize = 1.5;
                 particleSettings.particleDensity = 1;
                 particleSettings.formationDuration = 1000; // Faster on mobile
                 particleSettings.returnSpeed = 20; // Slower return on mobile
                 // Increase font size for mobile
-                particleSettings.texts[0].fontSize = 0.25; // Larger for mobile
+                particleSettings.texts[0].fontSize = 0.25;
                 // Update text content for mobile
                 particleSettings.texts[1].content = "Aspiring Python Developer";
                 particleSettings.texts[2].content = "& Problem Solver";
@@ -1262,11 +1262,10 @@
 
         // Event listeners
         if (isTouchDevice) {
-            // Only re-init on orientation change (not on scroll/resize)
             window.addEventListener('orientationchange', resizeCanvasAndParticlesMobile);
             
-            // Touch interaction for click effect (scatter)
             canvas.addEventListener('touchstart', function (e) {
+                e.preventDefault();
                 const touch = e.touches[0];
                 const rect = canvas.getBoundingClientRect();
                 mouse.x = touch.clientX - rect.left;
@@ -1274,14 +1273,23 @@
                 mouse.isClicking = true;
                 mouse.clickEndTime = Date.now() + particleSettings.clickDuration;
             });
-            canvas.addEventListener('touchend', function () {
-                mouse.isClicking = false;
-                mouse.x = undefined;
-                mouse.y = undefined;
+
+            canvas.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = touch.clientX - rect.left;
+                mouse.y = touch.clientY - rect.top;
             });
-            // No mousemove/mouseout listeners for mobile
-            mouse.x = undefined;
-            mouse.y = undefined;
+
+            canvas.addEventListener('touchend', function (e) {
+                e.preventDefault();
+                mouse.isClicking = false;
+                setTimeout(() => {
+                    mouse.x = undefined;
+                    mouse.y = undefined;
+                }, 100);
+            });
         } else {
             // Desktop: re-init on resize
             window.addEventListener('resize', resizeCanvasAndParticlesDesktop);
