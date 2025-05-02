@@ -144,6 +144,30 @@
             outline-color: #4F46E5;
         }
 
+        /* Section heading with icon and underline matching text+icon width */
+        .section-heading-gradient {
+            display: inline-block;
+            font-size: 2.25rem;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .section-heading-gradient::after {
+            content: '';
+            display: block;
+            height: 4px;
+            width: 100%;
+            margin: 0 auto;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #00f7ff, #ff00ff);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
         .section-heading {
             position: relative;
             display: inline-block;
@@ -155,12 +179,13 @@
         .section-heading::after {
             content: '';
             position: absolute;
-            left: 0;
+            left: 50%;
             bottom: 0;
-            width: 100%;
+            width: 80%;
             height: 3px;
             background: linear-gradient(90deg, #00f7ff, #ff00ff);
             border-radius: 2px;
+            transform: translateX(-50%);
         }
 
         .dark .section-heading::after {
@@ -229,6 +254,124 @@
         .dark .mobile-nav-link.active {
             background-color: rgba(79, 70, 229, 0.1);
             color: #4F46E5 !important;
+        }
+
+        /* Section backgrounds for light mode */
+        .section-bg-about {
+            background: #f3f4f6;
+        }
+
+        .section-bg-skills {
+            background: #f1f5f9;
+        }
+
+        .section-bg-projects {
+            background: #e7e5e4;
+        }
+
+        .section-bg-certifications {
+            background: #fce7f3;
+        }
+
+        .section-bg-resume {
+            background: #f0fdf4;
+        }
+
+        .section-bg-contact {
+            background: #fff7ed;
+        }
+
+        /* Box style for light mode */
+        .section-box {
+            background: #fff;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+            padding: 2.5rem 2rem;
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+
+        /* Light blue boxes for Skills section only (light mode) */
+        #skills .section-box {
+            background: #d6d6db;
+        }
+
+        @media (max-width: 640px) {
+            .section-box {
+                padding: 1.5rem 0.5rem;
+            }
+        }
+
+        /* Only apply in light mode */
+        .dark .section-bg-about,
+        .dark .section-bg-skills,
+        .dark .section-bg-projects,
+        .dark .section-bg-certifications,
+        .dark .section-bg-resume,
+        .dark .section-bg-contact {
+            background: inherit !important;
+        }
+
+        .dark .section-box {
+            background: #232946;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
+            padding: 2.5rem 2rem;
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+
+        #skills .section-box {
+            width: 100%;
+            min-height: 260px;
+            margin: 0 auto 2rem auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        @media (max-width: 640px) {
+            #skills .section-box {
+                max-width: 100%;
+                min-height: 200px;
+            }
+        }
+
+        .dark .section-bg-about {
+            background: #181f2a !important;
+        }
+
+        .dark .section-bg-skills {
+            background: #1a2233 !important;
+        }
+
+        .dark .section-bg-resume {
+            background: #011616 !important;
+        }
+
+        .dark .section-bg-certifications {
+            background: #231a2b !important;
+        }
+
+        .dark .section-bg-projects {
+            background: #181a22 !important;
+        }
+
+        .dark .section-heading-gradient {
+            color: #f3f4f6;
+        }
+
+        .dark .section-heading-gradient .text-yellow-400 {
+            color: #ffe066;
+        }
+
+        /* Pink accent for Achievements in Certifications section heading (dark mode) */
+        .dark #certifications .section-heading-gradient .text-yellow-400 {
+            color: #ff7eb9 !important;
+        }
+
+        .dark #skills .section-box {
+            background: #232946;
         }
     </style>
 </head>
@@ -315,44 +458,44 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 sm:py-20 md:py-24 bg-white dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2
-                    class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 relative text-gray-800 dark:text-white section-heading">
-                    About Me
-                </h2>
-            </div>
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
-                <div class="w-full md:w-2/5 max-w-md mx-auto md:mx-0">
-                    <div>
-                        <img src="https://vedantdalavi.vercel.app/images/profile.jpg" alt="Profile"
-                            class="relative w-full h-auto object-cover rounded-lg shadow-lg">
-                    </div>
+    <section id="about" class="section-bg-about py-16 sm:py-20 md:py-24">
+        <div class="section-box">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <span class="section-heading-gradient">
+                        <i class="fas fa-user mr-2 text-4xl align-middle"></i>
+                        About <span class="text-purple-600">Me</span>
+                    </span>
                 </div>
-                <div class="w-full md:w-3/5 mt-8 md:mt-0">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-primary dark:text-primary-light">Hello
-                        there! I'm Vedya</h3>
-                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                        I am a passionate Python developer with a strong foundation in web development and
-                        problem-solving.
-                        My journey in programming began with a curiosity for building things and has evolved into a deep
-                        appreciation for clean, efficient code.
-                    </p>
-                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6 sm:mb-8">
-                        I enjoy tackling complex problems and creating elegant solutions that make a difference.
-                        When I'm not coding, you can find me exploring new technologies and continuously improving my
-                        skills.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#contact"
-                            class="px-5 sm:px-6 py-2 sm:py-3 bg-primary hover:bg-primary-dark text-white rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
-                            <i class="fas fa-envelope mr-2"></i> Contact Me
-                        </a>
-                        <a href="#projects"
-                            class="px-5 sm:px-6 py-2 sm:py-3 bg-white dark:bg-gray-700 border border-primary text-primary dark:text-white rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
-                            <i class="fas fa-code mr-2"></i> View Projects
-                        </a>
+                <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
+                    <div class="w-full md:w-2/5 max-w-md mx-auto md:mx-0">
+                        <div>
+                            <img src="https://vedantdalavi.vercel.app/images/profile.jpg" alt="Profile"
+                                class="relative w-full h-auto object-cover rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-3/5 mt-8 md:mt-0">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-primary">Hello there! I'm Vedya</h3>
+                        <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
+                            I am a passionate Python developer with a strong foundation in web development and
+                            problem-solving. My journey in programming began with a curiosity for building things and
+                            has evolved into a deep appreciation for clean, efficient code.
+                        </p>
+                        <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
+                            I enjoy tackling complex problems and creating elegant solutions that make a difference.
+                            When I'm not coding, you can find me exploring new technologies and continuously improving
+                            my skills.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#contact"
+                                class="px-5 sm:px-6 py-2 sm:py-3 bg-primary hover:bg-primary-dark text-white rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                                <i class="fas fa-envelope mr-2"></i> Contact Me
+                            </a>
+                            <a href="#projects"
+                                class="px-5 sm:px-6 py-2 sm:py-3 bg-white border border-primary text-primary rounded-lg font-medium hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                                <i class="fas fa-code mr-2"></i> View Projects
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -360,13 +503,13 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 sm:py-20 md:py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="projects" class="section-bg-projects py-16 sm:py-20 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2
-                    class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 relative text-gray-800 dark:text-white section-heading">
-                    My Projects
-                </h2>
+                <span class="section-heading-gradient">
+                    <i class="fas fa-laptop-code mr-2 text-4xl align-middle"></i>
+                    Projects <span class="text-yellow-400">Made</span>
+                </span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                 <!-- Project 1: GIT-TUTOR -->
@@ -420,176 +563,201 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 sm:py-20 md:py-24 bg-white dark:bg-gray-800">
+    <section id="skills" class="section-bg-skills py-16 sm:py-20 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2
-                    class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 relative text-gray-800 dark:text-white section-heading">
-                    Skills
-                </h2>
+                <span class="section-heading-gradient">
+                    <i class="fas fa-laptop-code mr-2 text-4xl align-middle"></i>
+                    Skills & <span class="text-yellow-400">Abilities</span>
+                </span>
             </div>
-
-            <!-- Languages -->
-            <div class="mb-12 sm:mb-16">
-                <h3
-                    class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-800 dark:text-white">
-                    <span class="mr-2">⚒️</span> Languages <span class="ml-2">⚒️</span>
-                </h3>
-                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
-                    <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-yellow-100 dark:from-blue-900 dark:via-gray-900 dark:to-yellow-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
-                        <i class="fab fa-python text-3xl sm:text-4xl text-blue-500 dark:text-blue-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Python</h3>
-                    </a>
-                    <a href="https://isocpp.org/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-200 via-white to-blue-300 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-400 dark:border-blue-700">
-                        <i class="fas fa-code text-3xl sm:text-4xl text-blue-600 dark:text-blue-500 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">C++</h3>
-                    </a>
-                    <a href="https://www.cprogramming.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
-                        <i class="fas fa-code text-3xl sm:text-4xl text-blue-700 dark:text-blue-600 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">C</h3>
-                    </a>
-                    <a href="https://www.java.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-red-100 via-white to-red-200 dark:from-red-900 dark:via-gray-900 dark:to-red-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-red-300 dark:border-red-700">
-                        <i class="fab fa-java text-3xl sm:text-4xl text-red-500 dark:text-red-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Java</h3>
-                    </a>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-yellow-100 via-white to-yellow-200 dark:from-yellow-900 dark:via-gray-900 dark:to-yellow-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-yellow-300 dark:border-yellow-700">
-                        <i class="fab fa-js text-3xl sm:text-4xl text-yellow-500 dark:text-yellow-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">JavaScript</h3>
-                    </a>
-                    <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
-                        <i
-                            class="fas fa-database text-3xl sm:text-4xl text-gray-600 dark:text-gray-300 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">SQL</h3>
-                    </a>
+            <div class="grid gap-8">
+                <!-- Languages -->
+                <div class="section-box mb-0">
+                    <h3
+                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-300">
+                        <span class="mr-2">⚒️</span> Languages <span class="ml-2">⚒️</span>
+                    </h3>
+                    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
+                        <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-yellow-100 dark:from-blue-900 dark:via-gray-900 dark:to-yellow-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            <i
+                                class="fab fa-python text-3xl sm:text-4xl text-blue-500 dark:text-blue-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Python</h3>
+                        </a>
+                        <a href="https://isocpp.org/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-200 via-white to-blue-300 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-400 dark:border-blue-700">
+                            <i
+                                class="fas fa-code text-3xl sm:text-4xl text-blue-600 dark:text-blue-500 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">C++</h3>
+                        </a>
+                        <a href="https://www.cprogramming.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            <i
+                                class="fas fa-code text-3xl sm:text-4xl text-blue-700 dark:text-blue-600 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">C</h3>
+                        </a>
+                        <a href="https://www.java.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-red-100 via-white to-red-200 dark:from-red-900 dark:via-gray-900 dark:to-red-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-red-300 dark:border-red-700">
+                            <i class="fab fa-java text-3xl sm:text-4xl text-red-500 dark:text-red-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Java</h3>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-yellow-100 via-white to-yellow-200 dark:from-yellow-900 dark:via-gray-900 dark:to-yellow-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-yellow-300 dark:border-yellow-700">
+                            <i
+                                class="fab fa-js text-3xl sm:text-4xl text-yellow-500 dark:text-yellow-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">JavaScript</h3>
+                        </a>
+                        <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
+                            <i
+                                class="fas fa-database text-3xl sm:text-4xl text-gray-600 dark:text-gray-300 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">SQL</h3>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-orange-100 via-white to-orange-200 dark:from-orange-900 dark:via-gray-900 dark:to-orange-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-orange-300 dark:border-orange-700">
+                            <i
+                                class="fab fa-html5 text-3xl sm:text-4xl text-orange-600 dark:text-orange-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">HTML</h3>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            <i
+                                class="fab fa-css3-alt text-3xl sm:text-4xl text-blue-600 dark:text-blue-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">CSS</h3>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-orange-100 via-white to-orange-200 dark:from-orange-900 dark:via-gray-900 dark:to-orange-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-orange-300 dark:border-orange-700">
+                            <i
+                                class="fab fa-html5 text-3xl sm:text-4xl text-orange-600 dark:text-orange-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">HTML</h3>
+                        </a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            <i
+                                class="fab fa-css3-alt text-3xl sm:text-4xl text-blue-600 dark:text-blue-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">CSS</h3>
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Frameworks -->
-            <div class="mb-12 sm:mb-16">
-                <h3
-                    class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-800 dark:text-white">
-                    <span class="mr-2">⚒️</span> Frameworks <span class="ml-2">⚒️</span>
-                </h3>
-                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
-                    <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
-                        <i class="fab fa-react text-3xl sm:text-4xl text-blue-400 dark:text-blue-300 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">React</h3>
-                    </a>
-                    <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-green-100 via-white to-green-200 dark:from-green-900 dark:via-gray-900 dark:to-green-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-green-300 dark:border-green-700">
-                        <i
-                            class="fab fa-node-js text-3xl sm:text-4xl text-green-600 dark:text-green-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Node.js</h3>
-                    </a>
-                    <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-200 via-white to-gray-300 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-400 dark:border-gray-600">
-                        <i
-                            class="fas fa-fire text-3xl sm:text-4xl text-orange-500 dark:text-orange-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Flask</h3>
-                    </a>
-                    <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
-                        <i
-                            class="fab fa-bootstrap text-3xl sm:text-4xl text-purple-600 dark:text-purple-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Bootstrap</h3>
-                    </a>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-orange-100 via-white to-orange-200 dark:from-orange-900 dark:via-gray-900 dark:to-orange-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-orange-300 dark:border-orange-700">
-                        <i
-                            class="fab fa-html5 text-3xl sm:text-4xl text-orange-600 dark:text-orange-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">HTML</h3>
-                    </a>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
-                        <i
-                            class="fab fa-css3-alt text-3xl sm:text-4xl text-blue-600 dark:text-blue-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">CSS</h3>
-                    </a>
+                <!-- Frameworks -->
+                <div class="section-box mb-0">
+                    <h3
+                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-300">
+                        <span class="mr-2">⚒️</span> Frameworks <span class="ml-2">⚒️</span>
+                    </h3>
+                    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
+                        <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            <i
+                                class="fab fa-react text-3xl sm:text-4xl text-blue-400 dark:text-blue-300 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">React</h3>
+                        </a>
+                        <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-green-100 via-white to-green-200 dark:from-green-900 dark:via-gray-900 dark:to-green-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-green-300 dark:border-green-700">
+                            <i
+                                class="fab fa-node-js text-3xl sm:text-4xl text-green-600 dark:text-green-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Node.js</h3>
+                        </a>
+                        <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-200 via-white to-gray-300 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-400 dark:border-gray-600">
+                            <i
+                                class="fas fa-fire text-3xl sm:text-4xl text-orange-500 dark:text-orange-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Flask</h3>
+                        </a>
+                        <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
+                            <i
+                                class="fab fa-bootstrap text-3xl sm:text-4xl text-purple-600 dark:text-purple-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Bootstrap</h3>
+                        </a>font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Bootstrap</h3>
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Game Engines -->
-            <div class="mb-12 sm:mb-16">
-                <h3
-                    class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-800 dark:text-white">
-                    <span class="mr-2">⚒️</span> Game Engines <span class="ml-2">⚒️</span>
-                </h3>
-                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
-                    <a href="https://unity.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
-                        <i class="fas fa-gamepad text-3xl sm:text-4xl text-black dark:text-white mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Unity</h3>
-                    </a>
-                    <a href="https://www.unrealengine.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-200 via-white to-blue-400 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-400 dark:border-blue-700">
-                        <i class="fas fa-cube text-3xl sm:text-4xl text-blue-500 dark:text-blue-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Unreal Engine</h3>
-                    </a>
-                    <a href="https://godotengine.org/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
-                        <i
-                            class="fas fa-gamepad text-3xl sm:text-4xl text-purple-500 dark:text-purple-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Godot</h3>
-                    </a>
+                <!-- Game Engines -->
+                <div class="section-box mb-0">
+                    <h3
+                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-300">
+                        <span class="mr-2">⚒️</span> Game Engines <span class="ml-2">⚒️</span>
+                    </h3>
+                    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
+                        <a href="https://unity.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
+                            <i class="fas fa-gamepad text-3xl sm:text-4xl text-black dark:text-white mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Unity</h3>
+                        </a>
+                        <a href="https://www.unrealengine.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-200 via-white to-blue-400 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-400 dark:border-blue-700">
+                            <i
+                                class="fas fa-cube text-3xl sm:text-4xl text-blue-500 dark:text-blue-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Unreal Engine
+                            </h3>
+                        </a>
+                        <a href="https://godotengine.org/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
+                            <i
+                                class="fas fa-gamepad text-3xl sm:text-4xl text-purple-500 dark:text-purple-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Godot</h3>
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Software -->
-            <div>
-                <h3
-                    class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-800 dark:text-white">
-                    <span class="mr-2">⚒️</span> Softwares <span class="ml-2">⚒️</span>
-                </h3>
-                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
-                    <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-red-100 via-white to-red-200 dark:from-red-900 dark:via-gray-900 dark:to-red-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-red-300 dark:border-red-700">
-                        <i class="fab fa-git-alt text-3xl sm:text-4xl text-red-600 dark:text-red-400 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Git</h3>
-                    </a>
-                    <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
-                        <i class="fab fa-docker text-3xl sm:text-4xl text-blue-400 dark:text-blue-300 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Docker</h3>
-                    </a>
-                    <a href="https://www.linux.org/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
-                        <i class="fab fa-linux text-3xl sm:text-4xl text-black dark:text-white mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Linux</h3>
-                    </a>
-                    <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
-                        <i class="fas fa-cloud text-3xl sm:text-4xl text-blue-300 dark:text-blue-200 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">AWS</h3>
-                    </a>
-                    <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
-                        <i
-                            class="fas fa-terminal text-3xl sm:text-4xl text-gray-700 dark:text-gray-300 mb-2 sm:mb-3"></i>
-                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Command Line</h3>
-                    </a>
+                <!-- Software -->
+                <div class="section-box">
+                    <h3
+                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-300">
+                        <span class="mr-2">⚒️</span> Softwares <span class="ml-2">⚒️</span>
+                    </h3>
+                    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
+                        <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-red-100 via-white to-red-200 dark:from-red-900 dark:via-gray-900 dark:to-red-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-red-300 dark:border-red-700">
+                            <i
+                                class="fab fa-git-alt text-3xl sm:text-4xl text-red-600 dark:text-red-400 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Git</h3>
+                        </a>
+                        <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            <i
+                                class="fab fa-docker text-3xl sm:text-4xl text-blue-400 dark:text-blue-300 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Docker</h3>
+                        </a>
+                        <a href="https://www.linux.org/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
+                            <i class="fab fa-linux text-3xl sm:text-4xl text-black dark:text-white mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Linux</h3>
+                        </a>
+                        <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            <i
+                                class="fas fa-cloud text-3xl sm:text-4xl text-blue-300 dark:text-blue-200 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">AWS</h3>
+                        </a>
+                        <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
+                            <i
+                                class="fas fa-terminal text-3xl sm:text-4xl text-gray-700 dark:text-gray-300 mb-2 sm:mb-3"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Command Line
+                            </h3>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Certifications & Achievements Section -->
-    <section id="certifications" class="py-16 sm:py-20 md:py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="certifications" class="section-bg-certifications py-16 sm:py-20 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2
-                    class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 relative text-gray-800 dark:text-white section-heading">
-                    Certifications & Achievements
-                </h2>
+                <span class="section-heading-gradient">
+                    <i class="fas fa-certificate mr-2 text-4xl align-middle text-pink-500"></i>
+                    Certifications & <span class="text-yellow-400">Achievements</span>
+                </span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                 <!-- CS50x Certification -->
@@ -668,13 +836,13 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="py-16 sm:py-20 md:py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="resume" class="section-bg-resume py-16 sm:py-20 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2
-                    class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 relative text-gray-800 dark:text-white section-heading">
-                    Resume
-                </h2>
+                <span class="section-heading-gradient">
+                    <i class="fas fa-file-alt mr-2 text-4xl align-middle text-green-600"></i>
+                    My <span class="text-green-600">Resume</span>
+                </span>
             </div>
             <div class="max-w-3xl mx-auto text-center">
                 <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-6 sm:mb-8">Download my resume to
@@ -730,10 +898,10 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center">
-                <h2
-                    class="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 relative text-gray-800 dark:text-white section-heading">
-                    Get In Touch
-                </h2>
+                <span class="section-heading-gradient">
+                    <i class="fas fa-paper-plane mr-2 text-4xl align-middle text-primary"></i>
+                    Get In <span class="text-yellow-400">Touch</span>
+                </span>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12">
@@ -1263,7 +1431,7 @@
         // Event listeners
         if (isTouchDevice) {
             window.addEventListener('orientationchange', resizeCanvasAndParticlesMobile);
-            
+
             canvas.addEventListener('touchstart', function (e) {
                 e.preventDefault();
                 const touch = e.touches[0];
@@ -1557,5 +1725,7 @@
         }
     </script>
 </body>
+
+</html>
 
 </html>
