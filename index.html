@@ -483,13 +483,13 @@
                             When I'm not coding, you can find me exploring new technologies and continuously improving
                             my skills.
                         </p>
-                        <div class="flex flex-wrap gap-4">
+                        <div class="flex flex-nowrap gap-4 justify-start">
                             <a href="#contact"
-                                class="px-5 sm:px-6 py-2 sm:py-3 bg-primary hover:bg-primary-dark text-white rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                                class="whitespace-nowrap min-w-[140px] px-5 sm:px-6 py-2 sm:py-3 bg-primary hover:bg-primary-dark text-white rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                                 <i class="fas fa-envelope mr-2"></i> Contact Me
                             </a>
                             <a href="#projects"
-                                class="px-5 sm:px-6 py-2 sm:py-3 bg-white border border-primary text-primary rounded-lg font-medium hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                                class="whitespace-nowrap min-w-[140px] px-5 sm:px-6 py-2 sm:py-3 bg-white border border-primary text-primary rounded-lg font-medium hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                                 <i class="fas fa-code mr-2"></i> View Projects
                             </a>
                         </div>
@@ -505,7 +505,7 @@
             <div class="text-center">
                 <span class="section-heading-gradient">
                     <i class="fas fa-laptop-code mr-2 text-4xl align-middle"></i>
-                    Projects <span class="text-yellow-400">Made</span>
+                    Projects <span class="text-orange-500">Made</span>
                 </span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
@@ -572,7 +572,7 @@
                 <!-- Languages -->
                 <div class="section-box mb-0">
                     <h3
-                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-300">
+                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center dark:text-gray-300 ">
                         <span class="mr-2">⚒️</span> Languages <span class="ml-2">⚒️</span>
                     </h3>
                     <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
@@ -626,49 +626,35 @@
                                 class="fab fa-css3-alt text-3xl sm:text-4xl text-blue-600 dark:text-blue-400 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">CSS</h3>
                         </a>
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-orange-100 via-white to-orange-200 dark:from-orange-900 dark:via-gray-900 dark:to-orange-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-orange-300 dark:border-orange-700">
-                            <i
-                                class="fab fa-html5 text-3xl sm:text-4xl text-orange-600 dark:text-orange-400 mb-2 sm:mb-3"></i>
-                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">HTML</h3>
-                        </a>
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
-                            <i
-                                class="fab fa-css3-alt text-3xl sm:text-4xl text-blue-600 dark:text-blue-400 mb-2 sm:mb-3"></i>
-                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">CSS</h3>
-                        </a>
                     </div>
                 </div>
                 <!-- Frameworks -->
                 <div class="section-box mb-0">
                     <h3
-                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-300">
+                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center dark:text-gray-300">
                         <span class="mr-2">⚒️</span> Frameworks <span class="ml-2">⚒️</span>
                     </h3>
                     <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
                         <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
                             <i
                                 class="fab fa-react text-3xl sm:text-4xl text-blue-400 dark:text-blue-300 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">React</h3>
                         </a>
                         <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-green-100 via-white to-green-200 dark:from-green-900 dark:via-gray-900 dark:to-green-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-green-300 dark:border-green-700">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-green-100 via-white to-green-200 dark:from-green-900 dark:via-gray-900 dark:to-green-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-green-300 dark:border-green-700">
                             <i
                                 class="fab fa-node-js text-3xl sm:text-4xl text-green-600 dark:text-green-400 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Node.js</h3>
                         </a>
                         <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-200 via-white to-gray-300 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-400 dark:border-gray-600">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-200 via-white to-gray-300 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-400 dark:border-gray-600">
                             <i
                                 class="fas fa-fire text-3xl sm:text-4xl text-orange-500 dark:text-orange-400 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Flask</h3>
                         </a>
                         <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
                             <i
                                 class="fab fa-bootstrap text-3xl sm:text-4xl text-purple-600 dark:text-purple-400 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Bootstrap</h3>
@@ -678,24 +664,24 @@
                 <!-- Game Engines -->
                 <div class="section-box mb-0">
                     <h3
-                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-300">
+                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center dark:text-gray-300">
                         <span class="mr-2">⚒️</span> Game Engines <span class="ml-2">⚒️</span>
                     </h3>
                     <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
                         <a href="https://unity.com/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
                             <i class="fas fa-gamepad text-3xl sm:text-4xl text-black dark:text-white mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Unity</h3>
                         </a>
                         <a href="https://www.unrealengine.com/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-200 via-white to-blue-400 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-400 dark:border-blue-700">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-200 via-white to-blue-400 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-400 dark:border-blue-700">
                             <i
-                                class="fas fa-cube text-3xl sm:text-4xl text-blue-500 dark:text-blue-400 mb-2 sm:mb-3"></i>
+                                class="fas fa-cube text-3xl sm:text-3xl text-blue-500 dark:text-blue-400 mb-1 sm:mb-2"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Unreal Engine
                             </h3>
                         </a>
                         <a href="https://godotengine.org/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-purple-100 via-white to-purple-200 dark:from-purple-900 dark:via-gray-900 dark:to-purple-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-purple-300 dark:border-purple-700">
                             <i
                                 class="fas fa-gamepad text-3xl sm:text-4xl text-purple-500 dark:text-purple-400 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Godot</h3>
@@ -705,38 +691,38 @@
                 <!-- Software -->
                 <div class="section-box">
                     <h3
-                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center text-gray-300">
+                        class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center relative inline-flex items-center dark:text-gray-300">
                         <span class="mr-2">⚒️</span> Softwares <span class="ml-2">⚒️</span>
                     </h3>
                     <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
                         <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-red-100 via-white to-red-200 dark:from-red-900 dark:via-gray-900 dark:to-red-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-red-300 dark:border-red-700">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-red-100 via-white to-red-200 dark:from-red-900 dark:via-gray-900 dark:to-red-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-red-300 dark:border-red-700">
                             <i
                                 class="fab fa-git-alt text-3xl sm:text-4xl text-red-600 dark:text-red-400 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Git</h3>
                         </a>
                         <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
                             <i
                                 class="fab fa-docker text-3xl sm:text-4xl text-blue-400 dark:text-blue-300 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Docker</h3>
                         </a>
                         <a href="https://www.linux.org/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
                             <i class="fab fa-linux text-3xl sm:text-4xl text-black dark:text-white mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Linux</h3>
                         </a>
                         <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-blue-900 dark:via-gray-900 dark:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-blue-300 dark:border-blue-700">
                             <i
                                 class="fas fa-cloud text-3xl sm:text-4xl text-blue-300 dark:text-blue-200 mb-2 sm:mb-3"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">AWS</h3>
                         </a>
                         <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank"
                             rel="noopener noreferrer"
-                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[40px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
+                            class="text-center p-1 sm:p-2 md:p-3 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 skill-icon transform hover:scale-105 min-h-[48px] sm:min-h-[48px] aspect-square flex flex-col items-center justify-center border border-gray-300 dark:border-gray-500">
                             <i
-                                class="fas fa-terminal text-3xl sm:text-4xl text-gray-700 dark:text-gray-300 mb-2 sm:mb-3"></i>
+                                class="fas fa-terminal text-3xl sm:text-3xl text-gray-700 dark:text-gray-300 mb-1 sm:mb-2"></i>
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm sm:text-base">Command Line
                             </h3>
                         </a>
@@ -895,7 +881,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center">
                 <span class="section-heading-gradient">
-                    <i class="fas fa-paper-plane mr-2 text-4xl align-middle text-primary"></i>
+                    <i class="fas fa-paper-plane mr-2 text-4xl align-middle text-[#2b7fff]"></i>
                     Get In <span class="text-yellow-400">Touch</span>
                 </span>
             </div>
