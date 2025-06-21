@@ -1,0 +1,151 @@
+%-------------------------
+% Resume in LateX
+% Author : Vedant Dhanaji Dalavi
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate PDF is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\item\small{\textbf{#1}{: #2 \vspace{-2pt}}}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://github.com/vedantdalavi14}{\Large Vedant Dhanaji Dalavi}} & Email: \href{mailto:vedantdalavi14@gmail.com}{vedantdalavi14@gmail.com} \\
+  \href{https://github.com/vedantdalavi14}{github.com/vedantdalavi14} & Mobile: \href{tel:+918618912020}{+91 8618912020} \\
+  \href{https://www.linkedin.com/in/vedant-dalavi-175419331/}{linkedin.com/in/vedant-dalavi-175419331} & Location: India \\
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University Name}{Location}
+      {Computer Science Degree}{2020 -- 2024}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Company Name}{Location}
+      {Python Developer Intern}{Jan 2023 -- Jun 2023}
+      \resumeItemListStart
+        \resumeItem{Developed and maintained web applications using Flask.}
+        \resumeItem{Collaborated with a team of developers to implement new features.}
+        \resumeItem{Optimized database queries to improve application performance.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+    \resumeSubHeadingListStart
+        \resumeSubheading
+            {GIT-TUTOR – Online Learning Platform}{https://github.com/vedantdalavi14/Web-Project}
+            {Personal Project}{}
+            \resumeItemListStart
+                \resumeItem{A front-end platform offering courses in Blockchain, Design, Finance, and more.}
+                \resumeItem{Built with HTML, CSS, JavaScript, and Swiper.js; contact via Formspree.}
+                \resumeItem{Fully responsive design showcasing foundational web development skills.}
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------------
+\section{Certifications}
+    \resumeSubHeadingListStart
+        \resumeSubheading
+            {CS50x: Introduction to Computer Science}{2024}
+            {Harvard / edX}{}
+            \resumeItemListStart
+                \resumeItem{Gained strong foundations in algorithms, data structures, and web dev through hands-on projects.}
+            \resumeItemListEnd
+        \resumeSubheading
+            {CS50: Introduction to Programming with Python}{2025}
+            {Harvard / edX}{}
+            \resumeItemListStart
+                \resumeItem{Covered Python fundamentals, problem sets, and final project. Strengthened programming and problem-solving skills.}
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------------
+\section{Technical Skills}
+ \resumeSubHeadingListStart
+    \resumeSubItem{Languages \& Tools}{HTML, CSS, JavaScript, Python}
+    \resumeSubItem{Frameworks/Libraries}{React, Django, Node.js, Express, TailwindCSS, Svelte, Swiper.js}
+    \resumeSubItem{Platforms \& DevOps}{Firebase, Supabase, Heroku, Vercel, Docker, Kubernetes, Terraform}
+    \resumeSubItem{Databases \& Messaging}{PostgreSQL, MongoDB, Redis, RabbitMQ}
+    \resumeSubItem{Software}{Figma, Blender, MATLAB, Adobe Illustrator, Photoshop, After Effects}
+    \resumeSubItem{Other Tools}{Git, GitHub, VSCode, Linux, PowerShell, Notion, Discord, Formspree}
+ \resumeSubHeadingListEnd
+
+\end{document}
